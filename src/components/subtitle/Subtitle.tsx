@@ -1,12 +1,11 @@
 import React from 'react';
+import { SubtitleWrapper } from './style';
 
 interface SubtitleProps {
-  subtitle : string
+  subtitle: string;
 }
 
-const Subtitle = ({subtitle}:SubtitleProps) => {
-  return(
-    <div>{subtitle}</div>
-  )
-}
-export default Subtitle
+const Subtitle = ({ subtitle }: SubtitleProps) => {
+  return <SubtitleWrapper>{subtitle}</SubtitleWrapper>;
+};
+export default Subtitle;

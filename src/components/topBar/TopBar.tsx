@@ -1,17 +1,20 @@
 import React from 'react';
-import { TopBarWrapper,ContentWrapper } from './style';
+import BellIcon from '../../assets/svg/BellIcon';
+import ProfileIcon from '../../assets/svg/ProfileIcon';
+import SettingIcon from '../../assets/svg/SettingIcon';
+import { TopBarWrapper, ContentWrapper } from './style';
 
 const TopBar = () => {
   return (
     <TopBarWrapper>
       <ContentWrapper>
-        <div>bell</div>
-        <div>설정</div>
-        <div>Profile</div>
+        <BellIcon />
+        <SettingIcon />
+        <ProfileIcon />
         <div>원티드님</div>
       </ContentWrapper>
     </TopBarWrapper>
-  )
+  );
 };
 
 export default TopBar;
