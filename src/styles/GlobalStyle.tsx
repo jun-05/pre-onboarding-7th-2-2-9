@@ -10,7 +10,7 @@ body {
   margin: auto;
 }
 html {
-font-size: 62.5%;
+  font-size: 62.5%;
 }
 `;
 
