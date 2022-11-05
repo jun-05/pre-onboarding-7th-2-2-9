@@ -1,17 +1,17 @@
-import { BrowserRouter } from "react-router-dom";
-import { RecoilRoot } from "recoil";
-import Router from "./Router";
-import GlobalStyle from "./styles/GlobalStyle";
+import { BrowserRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+import Router from './Router';
+import GlobalStyle from './styles/GlobalStyle';
 
 const App = () => {
-  return(
+  return (
     <BrowserRouter>
       <RecoilRoot>
-        <GlobalStyle/>
+        <GlobalStyle />
         <Router />
       </RecoilRoot>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default App;
