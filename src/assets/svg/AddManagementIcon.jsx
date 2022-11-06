@@ -13,7 +13,7 @@ const AddManagementIcon = () => {
         </clipPath>
       </defs>
     </svg>
-  )
+  );
 };
 
 export default AddManagementIcon;
