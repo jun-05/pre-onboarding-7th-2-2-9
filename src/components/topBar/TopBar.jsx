@@ -8,10 +8,16 @@ const TopBar = () => {
   return (
     <TopBarWrapper>
       <ContentWrapper>
-        <div className='icon'><BellIcon /></div>
-        <div className='icon'><SettingIcon /></div>
-        <div className='icon'><ProfileIcon /></div>
-        <div className='name'>원티드님</div>
+        <div className="icon">
+          <BellIcon />
+        </div>
+        <div className="icon">
+          <SettingIcon />
+        </div>
+        <div className="icon">
+          <ProfileIcon />
+        </div>
+        <div className="name">원티드님</div>
       </ContentWrapper>
     </TopBarWrapper>
   );

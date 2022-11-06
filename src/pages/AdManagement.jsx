@@ -11,7 +11,7 @@ const AdManagement = () => {
       <SideBar />
       <ContentWrapper>
         <TopBar />
-        <Title />
+        <Title state={'광고관리'} />
         <AdManagementContainer />
       </ContentWrapper>
     </Layout>

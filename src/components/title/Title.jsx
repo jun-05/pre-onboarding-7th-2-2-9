@@ -1,27 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { DateRangePicker } from 'react-date-range';
+import Calendar from './calendar/Calendar';
 
-const Title = () => {
-  // const options = {
-  //   // onChange,
-  //   showDateDisplay: false,
-  //   showMonthAndYearPickers: false,
-  //   editableDateInputs: false,
-  //   moveRangeOnFirstSelection: false,
-  //   minDate: new Date('2022, 02, 01'),
-  //   maxDate: new Date('2022, 04, 20'),
-  //   monthDisplayFormat: 'yyy년 MM월',
-  //   inputRanges: [],
-  //   // ranges: currentRange,
-  //   // locale: ko,
-  //   months: 2,
-  // };
-
+const Title = ({ state }) => {
+  let content = null;
+  if (state === '대시보드') {
+    content = <Calendar />;
+  }
   return (
     <TitleWrapper>
-      <TitleContent>Title</TitleContent>
-      {/* <DateRangePicker direction='horizontal' {...options}/> */}
+      <TitleContent>{state}</TitleContent>
+      {content}
     </TitleWrapper>
   );
 };

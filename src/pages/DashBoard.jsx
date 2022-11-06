@@ -11,7 +11,7 @@ const DashBoard = () => {
       <SideBar />
       <ContentWrapper>
         <TopBar />
-        <Title />
+        <Title state={'대시보드'} />
         <DashBoardContainer />
       </ContentWrapper>
     </Layout>
