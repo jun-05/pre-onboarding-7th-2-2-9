@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import Router from './Router';
@@ -7,8 +8,10 @@ const App = () => {
   return (
     <BrowserRouter>
       <RecoilRoot>
-        <GlobalStyle />
-        <Router />
+        <React.Suspense fallback={<div>Loading</div>}>
+          <GlobalStyle />
+          <Router />
+        </React.Suspense>
       </RecoilRoot>
     </BrowserRouter>
   );
