@@ -1,11 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import lever_logo from 'assets/lever_logo.png';
-import { HiOutlinePresentationChartLine as Presentation } from 'react-icons/hi';
-import { MdAddChart } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
+import StyledSelect from 'components/common/Select';
+import { ReactComponent as DashIcon } from 'assets/Dashboard.svg';
+import { ReactComponent as AdIcon } from 'assets/AdManage.svg';
+import { ReactComponent as LightIcon } from 'assets/Light.svg';
 
 const Sidebar = () => {
+  const onSelect = e => {
+    if (e.target.value === 'addservice') {
+      alert('준비중입니다.');
+    }
+  };
+
   return (
     <ASide>
       <Logo />
@@ -13,9 +21,10 @@ const Sidebar = () => {
         <SubTitle>
           <span>서비스</span>
         </SubTitle>
-        <select>
-          <option>매드업</option>
-        </select>
+        <StyledSelect onChange={onSelect} defaultValue={'madup'}>
+          <option value="madup">매드업</option>
+          <option value="addservice">서비스 추가하기</option>
+        </StyledSelect>
       </ServiceDiv>
       <SideNav>
         <SubTitle>
@@ -25,26 +34,39 @@ const Sidebar = () => {
           <NavLink to="/main" className={({ isActive }) => (isActive ? 'active' : '')}>
             <li>
               <span>
-                <Presentation />
-                대시보드
+                <DashIcon />
               </span>
+              <span>대시보드</span>
             </li>
           </NavLink>
           <NavLink to="/admanage" className={({ isActive }) => (isActive ? 'active' : '')}>
             <li>
               <span>
-                <MdAddChart />
-                광고관리
+                <AdIcon />
               </span>
+              <span>광고관리</span>
             </li>
           </NavLink>
         </ul>
       </SideNav>
-      <div>이용가이드</div>
+      <GuideDiv>
+        <div className="guide_icon">
+          <div>
+            <LightIcon />
+          </div>
+        </div>
+        <div className="guide_contents">
+          <p className="guide_desc">레버 이용 가이드</p>
+          <p className="guide_before">시작하기 전에 알아보기</p>
+        </div>
+      </GuideDiv>
+      <TermsDiv>
+        <p>레버는 함께 만들어갑니다.</p>
+        <p>이용약관</p>
+      </TermsDiv>
     </ASide>
   );
 };
-
 const ASide = styled.aside`
   display: flex;
   flex-direction: column;
@@ -82,6 +104,10 @@ const SideNav = styled.nav`
   ul {
     a {
       text-decoration: none;
+
+      svg {
+        fill: #3a474e;
+      }
     }
     a.active {
       li {
@@ -89,12 +115,21 @@ const SideNav = styled.nav`
         background-color: #edeff1;
         border-radius: 10px;
       }
+
+      svg {
+        fill: #586cf5;
+      }
     }
   }
   li {
     padding: 20px 22px;
     color: #3a474e;
     font-weight: bold;
+
+    span:first-child {
+      vertical-align: middle;
+      margin-right: 12px;
+    }
   }
 `;
 const SubTitle = styled.div`
@@ -106,6 +141,59 @@ const SubTitle = styled.div`
 
   span {
     padding-left: 20px;
+  }
+`;
+
+const GuideDiv = styled.div`
+  width: 240px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 10px;
+  background-color: #e5f4fd;
+  padding: 30px 20px;
+  margin: 260px 0 40px 0;
+
+  .guide_icon {
+    margin-right: 8px;
+    div {
+      width: 40px;
+      height: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #586cf5;
+    }
+  }
+  .guide_contents {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .guide_desc {
+      font-size: 16px;
+      font-weight: bold;
+      color: #3a474e;
+    }
+    .guide_before {
+      font-size: 12px;
+      color: #94a2ad;
+    }
+  }
+`;
+const TermsDiv = styled.div`
+  color: #94a2ad;
+  font-size: 12px;
+  padding: 0 20px;
+
+  p:last-child {
+    margin-top: 10px;
+    text-decoration: underline;
   }
 `;
 export default Sidebar;

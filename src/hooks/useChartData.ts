@@ -1,5 +1,5 @@
 import { useAppSelector } from 'redux/hooks';
-import { filterTrendData } from 'utils/utils';
+import { filterTrendData } from 'utils/mainUtils';
 
 const useChartData = () => {
   const { startDate, endDate, trendDatas, trendFilter } = useAppSelector(state => state.dashboard);

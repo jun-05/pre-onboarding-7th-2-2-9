@@ -31,13 +31,15 @@ interface IMediaData extends ICommonData {
   channel: string;
 }
 
+export interface ITrendFilter {
+  fFilter: string;
+  sFilter: string;
+}
+
 export interface SliceState extends IDate {
   trendDatas: ITrendData[];
   mediaDatas: IMediaData[];
-  trendFilter: {
-    fFilter: string;
-    sFilter: string;
-  };
+  trendFilter: ITrendFilter;
 }
 
 // 기본 오늘부터 5일전

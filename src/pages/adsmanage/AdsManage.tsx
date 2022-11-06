@@ -1,7 +1,17 @@
 import React from 'react';
+import AdHeader from './AdHeader';
+import AdItems from './AdItem';
+import { Contents, Section } from './styles';
 
 const AdsManage = () => {
-  return <>광고관리</>;
+  return (
+    <Contents>
+      <AdHeader />
+      <Section>
+        <AdItems />
+      </Section>
+    </Contents>
+  );
 };
 
 export default AdsManage;

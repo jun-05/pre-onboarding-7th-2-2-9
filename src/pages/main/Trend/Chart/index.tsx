@@ -1,11 +1,10 @@
 import useChartData from 'hooks/useChartData';
-import styled from 'styled-components';
 import TrendFilter from './Filter';
 import TrendChart from './Chart';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import { ChangeEvent } from 'react';
-import { useCallback } from 'react';
+import { ChangeEvent, useCallback } from 'react';
 import { setTrendFilter } from 'redux/reducer/dashSlice';
+import { ChartSection } from 'pages/Main/styles';
 
 const Chart = () => {
   const dispatch = useAppDispatch();
@@ -21,16 +20,12 @@ const Chart = () => {
 
   return (
     <>
-      <Section>
+      <ChartSection>
         <TrendFilter filter={trendFilter} onSelect={onSelect} />
         <TrendChart data={trendDatas} />
-      </Section>
+      </ChartSection>
     </>
   );
 };
-
-const Section = styled.section`
-  height: 356px;
-`;
 
 export default Chart;

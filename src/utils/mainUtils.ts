@@ -7,7 +7,7 @@ export interface TrendType {
   imp: number;
   click: number;
   conv: number;
-  sales: number;
+  convValue: number;
 }
 
 interface TrendIndexable extends TrendType {
@@ -30,7 +30,7 @@ interface DiffType {
   imp: DiffTypeValue;
   click: DiffTypeValue;
   conv: DiffTypeValue;
-  sales: DiffTypeValue;
+  convValue: DiffTypeValue;
 }
 
 interface IParamsType {
@@ -69,7 +69,7 @@ export const filterTrendData = ({
         imp: data.imp,
         click: data.click,
         conv: data.conv,
-        sales: (data.roas * data.cost) / 100,
+        convValue: data.convValue,
       } as TrendFilterable;
     })
     .reduce(
@@ -96,7 +96,7 @@ export const mergeTrendData = ({ trendDatas, startDate, endDate }: IParamsType) 
         imp: data.imp,
         click: data.click,
         conv: data.conv,
-        sales: (data.roas * data.cost) / 100,
+        convValue: data.convValue,
       } as TrendIndexable;
     })
     .reduce(
@@ -110,7 +110,7 @@ export const mergeTrendData = ({ trendDatas, startDate, endDate }: IParamsType) 
         imp: 0,
         click: 0,
         conv: 0,
-        sales: 0,
+        convValue: 0,
       } as TrendIndexable
     );
 
@@ -133,7 +133,7 @@ export const diffTrendData = (curData: TrendIndexable, prevData: TrendIndexable)
       imp: { value: '0', variance: '0' },
       click: { value: '0', variance: '0' },
       conv: { value: '0', variance: '0' },
-      sales: { value: '0', variance: '0' },
+      convValue: { value: '0', variance: '0' },
     } as DiffType
   );
 };

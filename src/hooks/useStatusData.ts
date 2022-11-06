@@ -1,5 +1,5 @@
 import { useAppSelector } from 'redux/hooks';
-import { diffTrendData, mergeTrendData } from 'utils/utils';
+import { diffTrendData, mergeTrendData } from 'utils/mainUtils';
 
 const useStatusData = () => {
   const { startDate, endDate, trendDatas } = useAppSelector(state => state.dashboard);

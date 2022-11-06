@@ -4,7 +4,9 @@ import localeKo from 'air-datepicker/locale/ko';
 import 'air-datepicker/air-datepicker.css';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import { getTrendDatas, setDates } from 'redux/reducer/dashSlice';
+import { ReactComponent as ArrowDown } from 'assets/ArrowDown.svg';
 import dayjs from 'dayjs';
+import { DateDiv } from './styles';
 
 const RangeDatePicker = () => {
   const dispatch = useAppDispatch();
@@ -34,7 +36,7 @@ const RangeDatePicker = () => {
               day: 'numeric',
               month: 'long',
             })
-            .replace(',', '~');
+            .replace(',', ' ~ ');
         },
         onSelect({ date, formattedDate, datepicker }) {
           if (Array.isArray(date) && date.length > 1) {
@@ -47,7 +49,14 @@ const RangeDatePicker = () => {
     }
   }, [dispatch]);
 
-  return <input ref={dateInputRef} style={{ width: '500px' }} />;
+  return (
+    <DateDiv>
+      <input ref={dateInputRef} />
+      <span>
+        <ArrowDown />
+      </span>
+    </DateDiv>
+  );
 };
 
 export default RangeDatePicker;

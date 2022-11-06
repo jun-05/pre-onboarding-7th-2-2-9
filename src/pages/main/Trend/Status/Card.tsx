@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { DiffTypeValue } from 'utils/utils';
+import { DiffTypeValue } from 'utils/mainUtils';
 import { AiFillCaretUp, AiFillCaretDown } from 'react-icons/ai';
+import { CardArticle } from 'pages/Main/styles';
 
 const Card = ({ title, data: { value, variance } }: { title: string; data: DiffTypeValue }) => {
   const suffix = {
@@ -22,7 +22,7 @@ const Card = ({ title, data: { value, variance } }: { title: string; data: DiffT
     );
 
   return (
-    <CountArticle>
+    <CardArticle>
       <span>{title}</span>
       <div>
         <h3>
@@ -35,41 +35,8 @@ const Card = ({ title, data: { value, variance } }: { title: string; data: DiffT
           </span>
         </div>
       </div>
-    </CountArticle>
+    </CardArticle>
   );
 };
 
-const CountArticle = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  width: 32%;
-  height: 79px;
-
-  padding: 18px 40px;
-  border: 1px solid #edeff1;
-  border-radius: 10px;
-
-  span {
-    font-size: 12px;
-    color: #94a2ad;
-  }
-  h3 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #3a474e;
-  }
-  > div {
-    display: flex;
-    justify-content: space-between;
-
-    span {
-      vertical-align: middle;
-    }
-    span:first-child {
-      margin-right: 2px;
-    }
-  }
-`;
 export default Card;
