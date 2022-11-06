@@ -1,27 +1,36 @@
 import useChartData from 'hooks/useChartData';
-import { useAppSelector } from 'redux/hooks';
 import styled from 'styled-components';
+import TrendFilter from './Filter';
 import TrendChart from './Chart';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { ChangeEvent } from 'react';
+import { useCallback } from 'react';
+import { setTrendFilter } from 'redux/reducer/dashSlice';
 
 const Chart = () => {
-  // const { roas, cost, imp, click, conv, sales } = useChartData();
-  const { roas, click } = useChartData();
-  const { startDate } = useAppSelector(props => props.dashboard);
+  const dispatch = useAppDispatch();
+  const { trendFilter } = useAppSelector(state => state.dashboard);
+  const trendDatas = useChartData();
 
-  console.log(roas)
-  console.log(startDate)
+  const onSelect = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      dispatch(setTrendFilter({ ...trendFilter, [e.target.name]: e.target.value }));
+    },
+    [dispatch, trendFilter]
+  );
+
   return (
     <>
       <Section>
-        <TrendChart datas={[roas, click]} />
+        <TrendFilter filter={trendFilter} onSelect={onSelect} />
+        <TrendChart data={trendDatas} />
       </Section>
     </>
   );
 };
 
 const Section = styled.section`
-  height: 396px;
-  padding: 40px;
+  height: 356px;
 `;
 
 export default Chart;

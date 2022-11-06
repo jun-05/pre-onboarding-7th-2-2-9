@@ -10,8 +10,6 @@ const NotFoundPage = () => {
   //   navigate('/');
   // };
 
-  return (
-   <NotFound />
-  );
+  return <NotFound />;
 };
 export default NotFoundPage;

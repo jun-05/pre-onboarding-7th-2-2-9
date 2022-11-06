@@ -8,19 +8,18 @@ import dayjs from 'dayjs';
 
 const RangeDatePicker = () => {
   const dispatch = useAppDispatch();
-  const { startDate, endDate } = useAppSelector((state) => state.dashboard);
+  const { startDate, endDate } = useAppSelector(state => state.dashboard);
 
   const dateInputRef = useRef<HTMLInputElement>(null);
   let dp = useRef<any>(null);
-  
-  
+
   useEffect(() => {
     dispatch(getTrendDatas({ startDate, endDate }));
 
     if (dateInputRef.current) {
       // 기본 오늘부터 5일전
       // startDate: dayjs(),
-      // endDate: dayjs().subtract(5, "day"), 
+      // endDate: dayjs().subtract(5, "day"),
       dp.current = new AirDatepicker(dateInputRef.current, {
         locale: localeKo,
         range: true,
@@ -28,30 +27,27 @@ const RangeDatePicker = () => {
         autoClose: true,
         selectedDates: [startDate.toDate(), endDate.toDate()],
         startDate: endDate.toDate(),
-        dateFormat(date) { 
-          return date.toLocaleString('ko', {
-            year: 'numeric',
-            day: 'numeric',
-            month: 'long',
-          }).replace(",", "~");
+        dateFormat(date) {
+          return date
+            .toLocaleString('ko', {
+              year: 'numeric',
+              day: 'numeric',
+              month: 'long',
+            })
+            .replace(',', '~');
         },
-        onSelect({date, formattedDate, datepicker})  {
-          if(Array.isArray(date) && date.length > 1) {
+        onSelect({ date, formattedDate, datepicker }) {
+          if (Array.isArray(date) && date.length > 1) {
             const [sDate, eDate] = date;
             dispatch(getTrendDatas({ startDate: dayjs(sDate), endDate: dayjs(eDate) }));
             dispatch(setDates({ startDate: dayjs(sDate), endDate: dayjs(eDate) }));
-            // dispatch(getMediaDatas({sDate, eDate}));
           }
         },
       });
     }
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   // dispatch(getTrendDatas({startDate, endDate}));
-  // }, [dispatch, startDate, endDate]);
-
-  return <input ref={dateInputRef} style={{width:"500px"}} />;
+  return <input ref={dateInputRef} style={{ width: '500px' }} />;
 };
 
 export default RangeDatePicker;

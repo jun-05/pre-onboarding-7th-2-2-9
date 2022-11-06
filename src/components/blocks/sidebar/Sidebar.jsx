@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import lever_logo from 'assets/lever_logo.png';
 import { HiOutlinePresentationChartLine as Presentation } from 'react-icons/hi';
 import { MdAddChart } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-// Nav 320 * 984
 const Sidebar = () => {
   return (
     <ASide>
@@ -18,41 +17,39 @@ const Sidebar = () => {
           <option>매드업</option>
         </select>
       </ServiceDiv>
-      <nav>
+      <SideNav>
         <SubTitle>
           <span>광고 센터</span>
         </SubTitle>
         <ul>
-          <Link to="/">
-            <SideLi className="active">
+          <NavLink to="/main" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <li>
               <span>
                 <Presentation />
                 대시보드
               </span>
-            </SideLi>
-          </Link>
-          <Link to="/admanage">
-            <SideLi>
+            </li>
+          </NavLink>
+          <NavLink to="/admanage" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <li>
               <span>
                 <MdAddChart />
                 광고관리
               </span>
-            </SideLi>
-          </Link>
+            </li>
+          </NavLink>
         </ul>
-      </nav>
+      </SideNav>
       <div>이용가이드</div>
     </ASide>
   );
 };
 
-// Logo height 150px;
 const ASide = styled.aside`
   display: flex;
   flex-direction: column;
 
   width: 320px;
-  // height: 100%;
   padding: 0 40px;
 
   background-color: #fff;
@@ -81,15 +78,23 @@ const ServiceDiv = styled.div`
     font-weight: bold;
   }
 `;
-const SideLi = styled.li`
-  padding: 20px 22px;
-  color: #3a474e;
-  font-weight: bold;
-
-  &.active {
-    color: #586cf5;
-    background-color: #edeff1;
-    border-radius: 10px;
+const SideNav = styled.nav`
+  ul {
+    a {
+      text-decoration: none;
+    }
+    a.active {
+      li {
+        color: #586cf5;
+        background-color: #edeff1;
+        border-radius: 10px;
+      }
+    }
+  }
+  li {
+    padding: 20px 22px;
+    color: #3a474e;
+    font-weight: bold;
   }
 `;
 const SubTitle = styled.div`

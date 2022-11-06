@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { DiffTypeValue } from 'utils/utils';
-import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+import { AiFillCaretUp, AiFillCaretDown } from 'react-icons/ai';
 
-const Card = ({ title, data: {value, variance} }: { title: string; data: DiffTypeValue }) => {
+const Card = ({ title, data: { value, variance } }: { title: string; data: DiffTypeValue }) => {
   const suffix = {
     ROAS: '%',
     광고비: '원',
@@ -12,13 +12,14 @@ const Card = ({ title, data: {value, variance} }: { title: string; data: DiffTyp
     매출: '원',
   }[title];
 
-  // if(variance > 0) {
-  //   console.log('up')
-  // }
-  // else {
-  //   console.log('down')
-  // }
-  const TriangleIcon = (variance.includes("-")) ? <AiFillCaretDown color='#85da47' size={12} /> : <AiFillCaretUp color='#ff0000' />;
+  const TriangleIcon =
+    variance === '0' ? (
+      <></>
+    ) : variance.includes('-') ? (
+      <AiFillCaretDown color="#85da47" size={12} />
+    ) : (
+      <AiFillCaretUp color="#ff0000" />
+    );
 
   return (
     <CountArticle>
@@ -28,11 +29,9 @@ const Card = ({ title, data: {value, variance} }: { title: string; data: DiffTyp
           {value} {suffix}
         </h3>
         <div>
+          <span>{TriangleIcon}</span>
           <span>
-            {TriangleIcon}
-          </span>
-          <span>
-            {variance.replace("-", "")} {suffix}
+            {variance.replace('-', '')} {suffix}
           </span>
         </div>
       </div>

@@ -4,7 +4,6 @@ import Card from './Card';
 
 const Status = () => {
   const { roas, cost, imp, click, conv, sales } = useStatusData();
-  
   return (
     <>
       <CountSection>
@@ -27,7 +26,7 @@ const CountSection = styled.section`
 
   height: 178px;
 
-  padding: 40px;
+  margin-bottom: 40px;
   box-sizing: content-box;
 `;
 export default Status;

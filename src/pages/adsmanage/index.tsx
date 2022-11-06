@@ -2,7 +2,7 @@ import React from 'react';
 import AdsManage from './AdsManage';
 
 const AdsManagePage = () => {
-  return <AdsManage />
+  return <AdsManage />;
 };
 
 export default AdsManagePage;

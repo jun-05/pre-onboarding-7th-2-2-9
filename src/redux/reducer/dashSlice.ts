@@ -9,11 +9,6 @@ interface IDate {
   endDate: Dayjs;
 }
 
-export interface SliceState extends IDate {
-  trendDatas: ITrendData[];
-  mediaDatas: IMediaData[];
-}
-
 interface ICommonData {
   imp: number;
   click: number;
@@ -35,20 +30,38 @@ export interface ITrendData extends ICommonData {
 interface IMediaData extends ICommonData {
   channel: string;
 }
+
+export interface SliceState extends IDate {
+  trendDatas: ITrendData[];
+  mediaDatas: IMediaData[];
+  trendFilter: {
+    fFilter: string;
+    sFilter: string;
+  };
+}
+
 // 기본 오늘부터 5일전
 // startDate: dayjs(),
-// endDate: dayjs().subtract(5, "day"), 
+// endDate: dayjs().subtract(5, "day"),
 const initialState: SliceState = {
-  startDate: dayjs("2022-04-18"),
-  endDate: dayjs("2022-04-23"),
+  startDate: dayjs('2022-04-18'),
+  endDate: dayjs('2022-04-23'),
   trendDatas: [],
+  trendFilter: {
+    fFilter: 'roas',
+    sFilter: 'click',
+  },
   mediaDatas: [],
 };
 
 export const getTrendDatas = createAsyncThunk(
   'get/trend_data',
   async ({ startDate, endDate }: IDate, thunkAPI) => {
-    const { data: { report: { daily }}} = await axios.get('/server/wanted_FE_trend-data-set.json');
+    const {
+      data: {
+        report: { daily },
+      },
+    } = await axios.get('/server/wanted_FE_trend-data-set.json');
     return daily;
   }
 );
@@ -57,7 +70,7 @@ export const getMediaDatas = createAsyncThunk(
   async ({ sDate, eDate }: { sDate: Dayjs; eDate: Dayjs }, thunkAPI) => {
     const mediaResp = await axios.get('/server/wanted_FE-media-channel-data-set.json');
     const mediaData = mediaResp.data.filter((obj: IMediaData) =>
-      dayjs(obj.date).isBetween(sDate, eDate, "day", "[]")
+      dayjs(obj.date).isBetween(sDate, eDate, 'day', '[]')
     );
     return mediaData;
   }
@@ -71,11 +84,13 @@ export const DashSlice = createSlice({
       state.startDate = action.payload.startDate;
       state.endDate = action.payload.endDate;
     },
+    setTrendFilter: (state, action) => {
+      state.trendFilter = action.payload;
+    },
   },
   extraReducers: builder => {
     builder.addCase(getTrendDatas.fulfilled, (state, action) => {
       state.trendDatas = action.payload;
-      // state.prevTrendDatas = action.payload.prevTrendData;
     });
     builder.addCase(getMediaDatas.fulfilled, (state, action) => {
       state.mediaDatas = action.payload;
@@ -83,8 +98,6 @@ export const DashSlice = createSlice({
   },
 });
 
-// export const selectCompanies = state => state.companyList.company;
-
-export const { setDates } = DashSlice.actions;
+export const { setDates, setTrendFilter } = DashSlice.actions;
 
 export default DashSlice.reducer;

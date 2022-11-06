@@ -5,20 +5,17 @@ import Trend from './Trend';
 import Media from './Media';
 
 const MainPage = () => {
-
   return (
     <>
       <Header>
         <h1>대시보드</h1>
         <RangeDatePicker />
       </Header>
-      {/* <Main /> */}
       <Trend />
       <Media />
     </>
   );
 };
-
 
 const Header = styled.header`
   height: 80px;

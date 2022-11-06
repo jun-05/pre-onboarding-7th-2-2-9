@@ -1,16 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Media = () => {
   return (
     <Section>
-    <SubHeader>
-      <h2>매체 현황</h2>
-    </SubHeader>
-    <Contents></Contents>
-  </Section>
-  )
-}
-
+      <SubHeader>
+        <h2>매체 현황</h2>
+      </SubHeader>
+      <Contents></Contents>
+    </Section>
+  );
+};
 
 const Section = styled.section`
   height: 743px;

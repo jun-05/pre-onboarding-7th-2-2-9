@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Status from "./Status";
-import Chart from "./Chart";
+import styled from 'styled-components';
+import Status from './Status';
+import Chart from './Chart';
 
 const Trend = () => {
   return (
@@ -16,12 +16,10 @@ const Trend = () => {
   );
 };
 
-
 const Section = styled.section`
   height: 743px;
 
   padding: 20px 40px;
-  // background: #c2defd;
 `;
 
 const SubHeader = styled.header`
@@ -36,6 +34,8 @@ const Contents = styled.article`
   height: 654px;
   background: #fff;
   border-radius: 20px;
+
+  padding: 40px;
 `;
 
 export default Trend;
