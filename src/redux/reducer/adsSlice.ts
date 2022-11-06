@@ -1,14 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export type SliceState = {
   items: IItems;
 };
 
 export interface IItems {
-  [key: string] : {
+  [key: string]: {
     id: string;
     content: string;
-  }
+  };
 }
 
 const initialState: SliceState = {
@@ -16,7 +16,7 @@ const initialState: SliceState = {
 };
 
 export const adsSlice = createSlice({
-  name: "todolist",
+  name: 'adsManage',
   initialState,
   reducers: {
     setItems: (state, action) => {

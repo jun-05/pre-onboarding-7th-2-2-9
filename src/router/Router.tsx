@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes, To } from 'react-router-dom';
-import Layout from '../components/common/Layout';
-import MainPage from '../pages/main/Main';
-import AdsManagePage from '../pages/adsmanage/AdsManage';
-import NotFoundPage from '../pages/notfound/NotFound';
+import Layout from 'components/blocks/layout/Layout';
+import MainPage from 'pages/Main';
+import AdsManagePage from 'pages/Adsmanage';
+import NotFoundPage from 'pages/Notfound';
 
 const Router = () => {
   return (

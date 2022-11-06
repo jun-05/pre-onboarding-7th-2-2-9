@@ -7,11 +7,14 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Nanum Gothic' !important;
   }
-  div#root {
+  html {
+    width: 1440px;
+  }
+  html, body, div#root {
     height: 100%;
   }
   body {
-    background: #fff;
+    background: #f6f7f8;
   }
 
   @font-face {
