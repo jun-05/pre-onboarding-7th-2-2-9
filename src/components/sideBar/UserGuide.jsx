@@ -1,6 +1,6 @@
 import React from 'react';
 import UserGuideBulb from '../../assets/svg/UserGuideBulb';
-import { UserGuideLayout,MessageWrapper, BoldText, GuideMessage } from './style';
+import { UserGuideLayout, MessageWrapper, BoldText, GuideMessage } from './style';
 
 const UserGuide = () => {
   return (

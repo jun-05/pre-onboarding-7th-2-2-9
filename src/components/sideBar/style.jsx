@@ -7,9 +7,9 @@ export const SideBarLayout = styled.div`
   min-width: 32rem;
 `;
 
-export const MessageWrapper =styled.section`
+export const MessageWrapper = styled.section`
   margin-left: 1rem;
-`
+`;
 
 export const BoldText = styled.div`
   font-size: 1.6rem;
@@ -21,7 +21,7 @@ export const UserGuideLayout = styled.section`
   background: #e5f4fd;
   border-radius: 10px;
   padding: 10%;
-  align-items:center;
+  align-items: center;
 `;
 export const GuideMessage = styled.div`
   font-weight: 1.2rem;
@@ -41,14 +41,18 @@ export const NavigateMenu = styled.button`
   background-color: ${props => (props.isSelected ? '#EDEFF1;' : 'inherit')};
 `;
 
-
 export const NavStyle = styled(NavLink)`
-background-color:inherit;
-  &.selected{
-    color : '#586CF5';
-    background-color : #EDEFF1;
+  text-decoration: none;
+  text-align: start;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #3a474e;
+  font-size: 1.6rem;
+  &.active {
+    color: #586cf5;
+    background-color: #edeff1;
     path {
-      fill:'white'
-    } 
+      fill: 'white';
+    }
   }
-`
+`;
