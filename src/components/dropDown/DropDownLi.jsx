@@ -1,14 +1,9 @@
 import React from 'react';
-import styled from "styled-components"
-import { DropDownItemProps } from "./DropDown"
+import styled from 'styled-components';
 
-function DropDownLi({item} : DropDownItemProps) {
-  return(
-    <LIItem>{item}</LIItem>
-  )
+function DropDownLi({ children }) {
+  return <LIItem>{children}</LIItem>;
 }
-const LIItem = styled.li`
-  
-`
+const LIItem = styled.li``;
 
-export default DropDownLi
+export default DropDownLi;
