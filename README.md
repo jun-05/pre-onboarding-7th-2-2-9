@@ -1,3 +1,26 @@
+# B2C 차량대여 서비스 구축
+
+## 배포 페이지
+
+[http://wanted-pre-onboarding-fe-7-june.s3-website.ap-northeast-2.amazonaws.com/](http://wanted-pre-onboarding-fe-7-june.s3-website.ap-northeast-2.amazonaws.com/)
+
+## 요구기능 
+
+Figma 상의 디자인 및 기능 구현
+
+1. 목록 Page 구현
+  - 차량이 없을때, 차량을 불러올때 처리
+2. 차량 상세 Page 구현
+
+## 사용 스택
+
+- React JS
+- Redux
+- Redux Thunk
+- TailwindCSS
+- Tailwind-Styled-Component
+
+
 ## 1. commit msg 규칙
 
 ⭐ feat : 새로운 기능에 대한 커밋
